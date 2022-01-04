@@ -1,0 +1,10 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+cloudpickle=0.5.3
+matplotlib=3.1.1
+numpy=1.16
+pyyaml=5.1.2
+tqdm=4.31.1
+wheel=0.33.6
+yaml=0.1.7
+scipy=1.5.2
