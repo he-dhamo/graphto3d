@@ -68,6 +68,8 @@ Download the <a href="https://3dssg.github.io/#download" >3DSSG data</a> files t
 chmod +x ./download_3dssg.sh && ./download_3dssg.sh
 ```
 
+**Update:** Next, to fix a few dataset changes or incompatibilities - Find and delete the following line from `train_scans.txt`: `fa79392f-7766-2d5c-869a-f5d6cfb62fc6`. This scan contains an instance with zero points (depending on your 3RScan dataset version) which can lead to a crash during training. Additionally, add `_scene_` as the **first line** of the file `classes.txt`. 
+
 We use the scene splits with up to 9 objects per scene from the 3DSSG paper.
 The relationships here are preprocessed to avoid the two-sided annotation for spatial relationships, as these can lead 
 to paradoxes in the manipulation task. Finally, you will need our directed aligned 3D bounding boxes introduced in our
