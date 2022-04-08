@@ -81,7 +81,7 @@ chmod +x ./download_postproc_3dssg.sh && ./download_postproc_3dssg.sh
 Run the `transform_ply.py` script from **this repo** to obtain 3RScan scans in the correct alignment:
 ```
 cd ..
-python scripts/transform_ply.py --data_path /path/to/3RScan
+python ./scripts/transform_ply.py --data_path /path/to/3RScan
 ```
 
 ## Training
@@ -89,17 +89,17 @@ python scripts/transform_ply.py --data_path /path/to/3RScan
 To train our main model with shared shape and layout embedding run:
 
 ```
-python scripts/train_vaegan.py --network_type shared --exp ./experiments/shared_model --dataset_3RScan ../3RScan_v2/data/ --path2atlas ./experiments/atlasnet/model_70.pth --residual True
+python ./scripts/train_vaegan.py --network_type shared --exp ./experiments/shared_model --dataset_3RScan ../3RScan_v2/data/ --path2atlas ./experiments/atlasnet/model_70.pth --residual True
 ```
 
 To run the variant with separate (disentangled) layout and shape features:
 ```
-python scripts/train_vaegan.py --network_type dis --exp ./experiments/separate_baseline --dataset_3RScan ../3RScan_v2/data/ --path2atlas ./experiments/atlasnet/model_70.pth --residual True
+python ./scripts/train_vaegan.py --network_type dis --exp ./experiments/separate_baseline --dataset_3RScan ../3RScan_v2/data/ --path2atlas ./experiments/atlasnet/model_70.pth --residual True
 ```
 
 For the 3D-SLN baseline run:
 ```
-python scripts/train_vaegan.py --network_type sln --exp ./experiments/sln_baseline --dataset_3RScan ../3RScan_v2/data/ --path2atlas ./experiments/atlasnet/model_70.pth --residual False --with_manipulator False --with_changes False --weight_D_box 0 --with_shape_disc False
+python ./scripts/train_vaegan.py --network_type sln --exp ./experiments/sln_baseline --dataset_3RScan ../3RScan_v2/data/ --path2atlas ./experiments/atlasnet/model_70.pth --residual False --with_manipulator False --with_changes False --weight_D_box 0 --with_shape_disc False
 ```
 
 
