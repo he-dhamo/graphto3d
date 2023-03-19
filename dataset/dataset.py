@@ -486,7 +486,7 @@ class RIODatasetSceneGraph(data.Dataset):
                 else:
                     obj_pointset = self.norm_tensor(obj_pointset, np.asarray(tight_boxes[i]),
                                                     scale=True, rotation=self.use_canonical, scale_func=self.scale_func)
-            obj_points[i] = obj_pointset
+                obj_points[i] = obj_pointset
         else:
             obj_points = None
 
