@@ -428,13 +428,7 @@ class RIODatasetSceneGraph(data.Dataset):
                     # for other options, do not change the box
                 instances_order.append(key)
                 if not self.vae_baseline:
-                    bins = np.linspace(0, np.deg2rad(360), 24)
-                    angle = np.digitize(bbox[6], bins)
                     bbox = normalize_box_params(bbox)
-                    bbox[6] = angle
-                else:
-                    bins = np.linspace(0, np.deg2rad(360), 24)
-                    bbox[6] = np.digitize(bbox[6], bins)
                 tight_boxes.append(bbox)
 
         if self.with_feats:
@@ -534,6 +528,16 @@ class RIODatasetSceneGraph(data.Dataset):
                 path = path[:-3]
 
             pickle.dump(feats_out, open(path, 'wb'))
+
+        # Discretizing the angle parameter
+        bins = np.linspace(0, np.deg2rad(360), 24)
+        for bbox in tight_boxes:
+            # Denormalize current angle if needed
+            if not self.vae_baseline:
+                angle = denormalize_box_params(bbox)[-1]
+            else:
+                angle = bbox[-1]
+            bbox[-1] = np.digitize(angle, bins)
 
         # prepare outputs
         output['encoder'] = {}
