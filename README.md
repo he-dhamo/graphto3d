@@ -44,11 +44,8 @@ cd ./extension
 python setup.py install
 ```
 
-To download our checkpoints for our trained models and the Atlasnet weights used to obtain shape features:
-```
-cd ./experiments
-chmod +x ./download_checkpoints.sh && ./download_checkpoints.sh
-```
+**Updated** The checkpoints for our trained models and the Atlasnet weights (used to obtain shape features) can be found
+<a href="https://drive.google.com/drive/folders/1RbNUpHLQiY1zskd0buAgvl-yFwnD9N8M?usp=sharing">here</a>. Once downloaded place them in the ./experiments folder and unzip.
 
 ### Dataset
 
